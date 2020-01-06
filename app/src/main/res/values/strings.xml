@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">CalendarTeachers</string>
+    <string name="january">जानेवारी</string>
+    <string name="february">फेब्रुवारी</string>
+    <string name="march">मार्च</string>
+    <string name="april">एप्रिल</string>
+    <string name="may">मे</string>
+    <string name="june">जून</string>
+    <string name="july">जुलै</string>
+    <string name="august">ऑगस्ट</string>
+    <string name="september">सप्टेंबर</string>
+    <string name="october">ऑक्टोबर</string>
+    <string name="november">नोव्हेंबर</string>
+    <string name="december">डिसेंबर</string>
+
+
+    <string name="yyyy">२०२०</string>
+    <string name="sunday">रविवार</string>
+    <string name="monday">सोमवार</string>
+    <string name="tuesday">मंगळवार</string>
+    <string name="wednesday">बुधवार</string>
+    <string name="thursday">गुरुवार</string>
+    <string name="friday">शुक्रवार</string>
+    <string name="saturday">शनिवार</string>
+    <string name="short_sunday">र</string>
+    <string name="short_monday">सो</string>
+    <string name="short_tuesday">मं</string>
+    <string name="short_wednesday">बु</string>
+    <string name="short_thursday">गु</string>
+    <string name="short_friday">शु</string>
+    <string name="short_saturday">श</string>
+
+
+    <string name="mar_1">१</string>
+    <string name="mar_2">२</string>
+    <string name="mar_3">३</string>
+    <string name="mar_4">४</string>
+    <string name="mar_5">५</string>
+    <string name="mar_6">६</string>
+    <string name="mar_7">७</string>
+    <string name="mar_8">८</string>
+    <string name="mar_9">९</string>
+    <string name="mar_10">१०</string>
+    <string name="mar_11">११</string>
+    <string name="mar_12">१२</string>
+    <string name="mar_13">१३</string>
+    <string name="mar_14">१४</string>
+    <string name="mar_15">१५</string>
+    <string name="mar_16">१६</string>
+    <string name="mar_17">१७</string>
+    <string name="mar_18">१८</string>
+    <string name="mar_19">१९</string>
+    <string name="mar_20">२०</string>
+    <string name="mar_21">२१</string>
+    <string name="mar_22">२२</string>
+    <string name="mar_23">२३</string>
+    <string name="mar_24">२४</string>
+    <string name="mar_25">२५</string>
+    <string name="mar_26">२६</string>
+    <string name="mar_27">२७</string>
+    <string name="mar_28">२८</string>
+    <string name="mar_29">२९</string>
+    <string name="mar_30">३०</string>
+    <string name="mar_31">३१</string>
+
+</resources>
