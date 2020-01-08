@@ -315,14 +315,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r1c1"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
+                                    android:text=""
                                     android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -344,14 +345,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r2c1"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -372,14 +374,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r3c1"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -400,14 +403,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r4c1"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -428,14 +432,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r5c1"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -456,14 +461,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r6c1"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -485,13 +491,14 @@
                                 <TextView
                                     android:id="@+id/date_r7c1"
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -525,14 +532,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r1c2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
+                                    android:text=""
                                     android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -553,14 +561,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r2c2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -581,14 +590,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r3c2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -609,14 +619,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r4c2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -637,14 +648,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r5c2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -665,14 +677,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r6c2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -693,14 +706,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r7c2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -734,14 +748,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r1c3"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
+                                    android:text=""
                                     android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -762,14 +777,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r2c3"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -790,14 +806,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r3c3"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -818,14 +835,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r4c3"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -846,14 +864,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r5c3"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -874,14 +893,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r6c3"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -902,14 +922,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r7c3"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -943,14 +964,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r1c4"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
+                                    android:text=""
                                     android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -971,14 +993,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r2c4"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -999,14 +1022,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r3c4"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1027,14 +1051,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r4c4"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1055,14 +1080,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r5c4"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1084,13 +1110,14 @@
                                 <TextView
                                     android:id="@+id/date_r6c4"
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1111,14 +1138,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r7c4"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1152,14 +1180,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r1c5"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
+                                    android:text=""
                                     android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1180,14 +1209,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r2c5"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1208,14 +1238,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r3c5"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1236,14 +1267,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r4c5"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1264,14 +1296,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r5c5"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1293,13 +1326,14 @@
                                 <TextView
                                     android:id="@+id/date_r6c5"
                                     android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1320,14 +1354,15 @@
 
                                 <TextView
                                     android:id="@+id/date_r7c5"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_weight="10"
+                                    android:gravity="center"
                                     android:paddingEnd="8dp"
-                                    android:text=""  android:gravity="center"
-                                    android:textColor="@color/colorRed"
-                                    android:textSize="32sp"/>
+                                    android:text=""
+                                    android:textColor="@color/colorDarkBlue"
+                                    android:textSize="32sp" />
 
                             </LinearLayout>
 
@@ -1341,6 +1376,14 @@
                 </LinearLayout>
             </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/iv_adv_calender"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
+
     </LinearLayout>
 
 </ScrollView>

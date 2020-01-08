@@ -5,7 +5,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.Toast;
+
+import com.srkakadesir.calendarteachers.model.DaysModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -44,10 +49,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor readClasses(){
+    public Cursor readMonths(){
         openDatabase();
-
-        return mDatabase.rawQuery("SELECT * FROM "+ MonthEntry.MonthContract.TABLE_NAME + "",null);
+        Cursor cursor = mDatabase.rawQuery("SELECT * FROM " + MonthEntry.MonthContract.TABLE_NAME + "", null);
+        return cursor;
     }
+
+    public List<Cursor> readDays(){
+        List<Cursor> cursors = new ArrayList<>();
+        openDatabase();
+        for (int i=1;i<=12;i++){
+            Cursor cursor =  mDatabase.rawQuery("SELECT * FROM "+ MonthEntry.DaysContract.TABLE_NAME + " WHERE "+ MonthEntry.DaysContract.MONTH + " = " + String.valueOf(i), null);
+            cursors.add(cursor);
+        }
+
+        return cursors;
+    }
+
+
 
 }

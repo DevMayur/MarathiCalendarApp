@@ -2,7 +2,6 @@ package com.srkakadesir.calendarteachers;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,18 +12,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.chrisbanes.photoview.PhotoView;
 import com.srkakadesir.calendarteachers.database.DatabaseHelper;
 import com.srkakadesir.calendarteachers.database.MonthEntry;
+import com.srkakadesir.calendarteachers.model.DaysModel;
 import com.srkakadesir.calendarteachers.model.MonthModel;
-import com.yarolegovich.lovelydialog.LovelyCustomDialog;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -41,8 +37,11 @@ public class CalendarActivity extends AppCompatActivity {
     private TextView []tv_date = new TextView[35];
     private TextView tv_month_name,tv_marathi_month_name, tv_month_id;
     private List<MonthModel> mList;
+    private List<DaysModel> dList;
     private int number_of_days = 31;
     private ImageView header_main;
+    private List<Cursor> cursor_day_list;
+    private ImageView iv_adv;
 
 
     @Override
@@ -60,18 +59,25 @@ public class CalendarActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        setCurrentMonth();
 
-        int month_id = 0;
+        DateFormat dateFormat = new SimpleDateFormat("MM");
+        Date date = new Date();
+        String getCurrentMonth = dateFormat.format(date);
+
+        initValues();
+        int month_id = Integer.valueOf(getCurrentMonth)-1;
+        setAdvertisement(month_id);
 
         yyyy= getResources().getString(R.string.yyyy);
         mList = new ArrayList<>();
+        dList = new ArrayList<>();
         fetchData();
         setStartDayShift(mList.get(month_id));
         initializeViews();
-        initValues();
         setDialog(mList.get(month_id));
-        setCurrentMonth();
         setFields(mList.get(month_id));
+        fetchDays(month_id);
 
 
 
@@ -91,75 +97,108 @@ public class CalendarActivity extends AppCompatActivity {
                         switch (item.getItemId())
                         {
                             case R.id.january_menu:
-                                setStartDayShift(mList.get(0));
-                                setFields(mList.get(0));
-                                setDialog(mList.get(0));
+                                setValues(0);
+
                                 break;
                             case R.id.february_menu:
-                                setStartDayShift(mList.get(1));
-                                setFields(mList.get(1));
-                                setDialog(mList.get(1));
+                                setValues(1);
                                 break;
                             case R.id.march_menu:
-                                setStartDayShift(mList.get(2));
-                                setFields(mList.get(2));
-                                setDialog(mList.get(2));
+                                setValues(2);
                                 break;
                             case R.id.april_menu:
-                                setStartDayShift(mList.get(3));
-                                setFields(mList.get(3));
-                                setDialog(mList.get(3));
+                                setValues(3);
                                 break;
                             case R.id.may_menu:
-                                setStartDayShift(mList.get(4));
-                                setFields(mList.get(4));
-                                setDialog(mList.get(4));
+                                setValues(4);
                                 break;
                             case R.id.june_menu:
-                                setStartDayShift(mList.get(5));
-                                setFields(mList.get(5));
-                                setDialog(mList.get(5));
+                                setValues(5);
                                 break;
                             case R.id.july_menu:
-                                setStartDayShift(mList.get(6));
-                                setFields(mList.get(6));
-                                setDialog(mList.get(6));
+                                setValues(6);
                                 break;
                             case R.id.august_menu:
-                                setStartDayShift(mList.get(7));
-                                setFields(mList.get(7));
-                                setDialog(mList.get(7));
+                                setValues(7);
                                 break;
                             case R.id.september_menu:
-                                setStartDayShift(mList.get(8));
-                                setFields(mList.get(8));
-                                setDialog(mList.get(8));
+                                setValues(8);
                                 break;
                             case R.id.october_menu:
-                                setStartDayShift(mList.get(9));
-                                setFields(mList.get(9));
-                                setDialog(mList.get(9));
+                                setValues(9);
                                 break;
                             case R.id.november_menu:
-                                setStartDayShift(mList.get(10));
-                                setFields(mList.get(10));
-                                setDialog(mList.get(10));
+                                setValues(10);
                                 break;
                             case R.id.december_menu:
-                                setStartDayShift(mList.get(11));
-                                setFields(mList.get(11));
-                                setDialog(mList.get(11));
+                                setValues(11);
                                 break;
 
                         }
 
                         return true;
                     }
+
+                    private void setValues(int n) {
+
+                        for (int i=0 ;i<35 ;i++){
+                            tv_date[i].setBackgroundColor(getResources().getColor(R.color.colorWhite));
+                        }
+
+                        setStartDayShift(mList.get(n));
+                        setFields(mList.get(n));
+                        setDialog(mList.get(n));
+                        dList.clear();
+                        fetchDays(n);
+                        setAdvertisement(n);
+                    }
                 });
 
             }
         });
 
+    }
+
+    private void setAdvertisement(int n) {
+
+        switch (n) {
+            case 0:
+                iv_adv.setImageResource(R.drawable.adv_1);
+                break;
+            case 1:
+                iv_adv.setImageResource(R.drawable.adv_2);
+                break;
+            case 2:
+                iv_adv.setImageResource(R.drawable.adv_3);
+                break;
+            case 3:
+                iv_adv.setImageResource(R.drawable.adv_4);
+                break;
+            case 4:
+                iv_adv.setImageResource(R.drawable.adv_5);
+                break;
+            case 5:
+                iv_adv.setImageResource(R.drawable.adv_6);
+                break;
+            case 6:
+                iv_adv.setImageResource(R.drawable.adv_7);
+                break;
+            case 7:
+                iv_adv.setImageResource(R.drawable.adv_8);
+                break;
+            case 8:
+                iv_adv.setImageResource(R.drawable.adv_9);
+                break;
+            case 9:
+                iv_adv.setImageResource(R.drawable.adv_10);
+                break;
+            case 10:
+                iv_adv.setImageResource(R.drawable.adv_11);
+                break;
+            case 11:
+                iv_adv.setImageResource(R.drawable.adv_12);
+                break;
+        }
     }
 
     private void setStartDayShift(MonthModel model) {
@@ -170,10 +209,27 @@ public class CalendarActivity extends AppCompatActivity {
         DateFormat dateFormat = new SimpleDateFormat("MM");
         Date date = new Date();
         String getCurrentMonth = dateFormat.format(date);
-        if (Integer.valueOf(getCurrentMonth) == model.getId()+1) {
-            tv_date[Integer.valueOf(dd) + start_day_shift - 1].setBackgroundColor(getResources().getColor(R.color.colorYellow));
-            tv_date[Integer.valueOf(dd) + start_day_shift - 1].setTextColor(getResources().getColor(R.color.colorDarkBlue));
+
+        if (model.getId()==Integer.valueOf(getCurrentMonth)) {
+            if (start_day_shift == 6) {
+                if (Integer.valueOf(dd) == 30) {
+                    tv_date[0].setBackgroundColor(getResources().getColor(R.color.colorYellow));
+                } else if (Integer.valueOf(dd) == 31) {
+                    tv_date[1].setBackgroundColor(getResources().getColor(R.color.colorYellow));
+                } //0 : 30 , 1 : 31
+
+            } else if (start_day_shift == 5) {// 0: 31
+
+                if (Integer.valueOf(dd) == 31) {
+                    tv_date[0].setBackgroundColor(getResources().getColor(R.color.colorYellow));
+                }
+
+            } else {
+                tv_date[Integer.valueOf(dd) + start_day_shift - 1].setBackgroundColor(getResources().getColor(R.color.colorYellow));
+            }
+
         }
+
             tv_month_name.setText(model.getMonth_name());
             tv_month_id.setText(getMonthNumber(model.getId()));
             tv_marathi_month_name.setText(model.getMarathi_month());
@@ -183,12 +239,17 @@ public class CalendarActivity extends AppCompatActivity {
         tv_month_name = findViewById(R.id.tv_month_calendar);
         tv_marathi_month_name = findViewById(R.id.tv_marathi_month_calendar);
         tv_month_id = findViewById(R.id.tv_month_id_calendar);
+        iv_adv = findViewById(R.id.iv_adv_calender);
     }
 
     private void fetchData() {
-        DatabaseHelper databaseHelper = new DatabaseHelper(this);
-        SQLiteDatabase db = databaseHelper.getReadableDatabase();
-        Cursor cursor = databaseHelper.readClasses();
+        DatabaseHelper monthsDatabaseHelper = new DatabaseHelper(this);
+        DatabaseHelper daysDatabaseHelper = new DatabaseHelper(this);
+        SQLiteDatabase db = monthsDatabaseHelper.getReadableDatabase();
+        SQLiteDatabase db1 = daysDatabaseHelper.getReadableDatabase();
+        Cursor cursor = monthsDatabaseHelper.readMonths();
+
+
 
         while (cursor.moveToNext()) {
             String month_name = cursor.getString(cursor.getColumnIndex(MonthEntry.MonthContract.MONTH_NAME));
@@ -205,6 +266,39 @@ public class CalendarActivity extends AppCompatActivity {
 
         }
 
+        cursor_day_list = daysDatabaseHelper.readDays();
+
+        monthsDatabaseHelper.closeDatabase();
+
+    }
+
+    private void fetchDays(int month_number) {
+
+        Cursor cursor_day = cursor_day_list.get(month_number);
+
+        while (cursor_day.moveToNext()) {
+
+            int id = cursor_day.getInt(cursor_day.getColumnIndex(MonthEntry.DaysContract.ID));
+            int date = cursor_day.getInt(cursor_day.getColumnIndex(MonthEntry.DaysContract.DATE));
+            int month = cursor_day.getInt(cursor_day.getColumnIndex(MonthEntry.DaysContract.MONTH));
+            int isHoliday = cursor_day.getInt(cursor_day.getColumnIndex(MonthEntry.DaysContract.ISHOLIDAY));
+
+            String marathi_date = cursor_day.getString(cursor_day.getColumnIndex(MonthEntry.DaysContract.MARATHI_DATE));
+            String info_1 = cursor_day.getString(cursor_day.getColumnIndex(MonthEntry.DaysContract.INFO1));
+            String info_2 = cursor_day.getString(cursor_day.getColumnIndex(MonthEntry.DaysContract.INFO2));
+            String occassion = cursor_day.getString(cursor_day.getColumnIndex(MonthEntry.DaysContract.OCCASSION));
+            String occassion_asset = cursor_day.getString(cursor_day.getColumnIndex(MonthEntry.DaysContract.OCCASSION_ASSET));
+            String sunrise = cursor_day.getString(cursor_day.getColumnIndex(MonthEntry.DaysContract.SUNRISE));
+            String sunset = cursor_day.getString(cursor_day.getColumnIndex(MonthEntry.DaysContract.SUNSET));
+            String user_note = cursor_day.getString(cursor_day.getColumnIndex(MonthEntry.DaysContract.USER_NOTE));
+
+            DaysModel model = new DaysModel(id,date,month,isHoliday,marathi_date,info_1,info_2,occassion,occassion_asset,sunrise,sunset,user_note);
+            dList.add(model);
+
+
+            Log.d("days_db_test"," " + id+" " +date+" " +month+" " +isHoliday+" " +marathi_date+" " +info_1+" " +info_2+" " +occassion+" " +occassion_asset+" " +sunrise+" " +sunset+" " +user_note);
+
+        }
 
 
     }
@@ -258,7 +352,6 @@ public class CalendarActivity extends AppCompatActivity {
         Date date = new Date();
         String getCurrentDate = dateFormat.format(date);
         this.dd = getCurrentDate;
-        Log.d("date_by_mayur",getCurrentDate);
     }
 
     private void setCurrentMonth() {
@@ -322,7 +415,6 @@ public class CalendarActivity extends AppCompatActivity {
 
     private void setDialog(final MonthModel model) {
         int no = model.getNo_of_days();
-        Log.d("start_day_shift",start_day_shift+"");
         for (int i=1 ;i<=35 ;i++){
             if (i - start_day_shift <= no) {
                 tv_date[i - 1].setText(getDate(i - start_day_shift));
@@ -333,7 +425,6 @@ public class CalendarActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         if (!getDate(finalI - start_day_shift).equals("")) {
                             dialogSelectedDate(model.getMonth_name(), getDate(finalI - start_day_shift), finalI - 1);
-                            Toast.makeText(CalendarActivity.this, "Date : " + String.valueOf(finalI - start_day_shift) + "month : " + model.getMonth_name(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -450,6 +541,47 @@ public class CalendarActivity extends AppCompatActivity {
         TextView date = dialogView.findViewById(R.id.tv_date_selected_date_dialog);
         TextView day = dialogView.findViewById(R.id.tv_day_selected_date_dialog);
         TextView month = dialogView.findViewById(R.id.tv_month_selected_date_dialog);
+        TextView info_1 = dialogView.findViewById(R.id.tv_info1_selected_date_dialog);
+        TextView info_2 = dialogView.findViewById(R.id.tv_info2_selected_date_dialog);
+        TextView info_3 = dialogView.findViewById(R.id.tv_info3_selected_date_dialog);
+        TextView occasion = dialogView.findViewById(R.id.tv_occassion_selected_date_layout);
+        TextView sunrise = dialogView.findViewById(R.id.tv_sunrise_selected_date_layout);
+        TextView sunset = dialogView.findViewById(R.id.tv_sunset_selected_date_layout);
+        ImageView iv_red = dialogView.findViewById(R.id.iv_red_dot_selected_date);
+        ImageView iv_blue = dialogView.findViewById(R.id.iv_blue_dot_selected_date);
+        ImageView iv_green = dialogView.findViewById(R.id.iv_green_dot_selected_date);
+        ImageView iv_occassion = dialogView.findViewById(R.id.iv_occassion_selected_date_layout);
+        info_1.setVisibility(View.VISIBLE);
+        iv_red.setVisibility(View.VISIBLE);
+        info_2.setVisibility(View.VISIBLE);
+        iv_blue.setVisibility(View.VISIBLE);
+        occasion.setVisibility(View.VISIBLE);
+
+
+        if(dList.size() >= Integer.valueOf(selected_date)) { //to avoid app crashing
+            info_3.setText(String.valueOf(dList.get(Integer.valueOf(selected_date)-1).getMarathi_date()));
+            info_1.setText(String.valueOf(dList.get(Integer.valueOf(selected_date)-1).getInfo_1()));
+            info_2.setText(String.valueOf(dList.get(Integer.valueOf(selected_date)-1).getInfo_2()));
+            occasion.setText(String.valueOf(dList.get(Integer.valueOf(selected_date)-1).getOccassion()));
+            sunrise.setText(String.valueOf(dList.get(Integer.valueOf(selected_date)-1).getSunrise()));
+            sunset.setText(String.valueOf(dList.get(Integer.valueOf(selected_date)-1).getSunset()));
+
+            //setNullValues(Integer.valueOf(selected_date));
+            if (dList.get(Integer.valueOf(selected_date)-1).getInfo_1()==null){
+                info_1.setVisibility(View.GONE);
+                iv_red.setVisibility(View.GONE);
+            }
+            if (dList.get(Integer.valueOf(selected_date)-1).getInfo_2()==null){
+                info_2.setVisibility(View.GONE);
+                iv_blue.setVisibility(View.GONE);
+            }
+            if (dList.get(Integer.valueOf(selected_date)-1).getOccassion()==null){
+                occasion.setVisibility(View.GONE);
+            }
+            if (dList.get(Integer.valueOf(selected_date)-1).getOccassion_asset()==null){
+                iv_occassion.setVisibility(View.GONE);
+            }
+        }
 
         RegionalDataProvider dayProvider = new RegionalDataProvider(Integer.valueOf(selected_date),this);
         day.setText(dayProvider.getDay(id));
@@ -463,6 +595,10 @@ public class CalendarActivity extends AppCompatActivity {
 
         dialogBuilder.setView(dialogView);
         dialogBuilder.show();
+
+    }
+
+    private void setNullValues(int selected_date) {
 
     }
 

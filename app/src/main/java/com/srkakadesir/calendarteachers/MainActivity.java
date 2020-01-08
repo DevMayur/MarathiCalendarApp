@@ -24,18 +24,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DatabaseHelper monthsDatabaseHelper = new DatabaseHelper(this);
+        SQLiteDatabase db = monthsDatabaseHelper.getReadableDatabase();
+
 
         copyDatabase(this);
-
 
 
         File database = getApplicationContext().getDatabasePath(DatabaseHelper.DBNAME);
         if(!database.exists()) {
             //Copy db
             if(copyDatabase(this)) {
-                Toast.makeText(this, "Copy database succes", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Copy database success", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Copy data error", Toast.LENGTH_SHORT).show();
+                copyDatabase(this);
                 return;
             }
         }else{
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("MainActivity","DB copied");
             return true;
         }catch (Exception e) {
-            Log.d("MainActivity","DB copied");
+            Log.d("MainActivity",e.getMessage());
             e.printStackTrace();
             return false;
         }
