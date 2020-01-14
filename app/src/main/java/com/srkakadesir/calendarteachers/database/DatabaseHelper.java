@@ -66,6 +66,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursors;
     }
 
+    public Cursor readHolidays(){
+        Cursor cursor;
+        openDatabase();
+
+            cursor =  mDatabase.rawQuery("SELECT * FROM "+ MonthEntry.DaysContract.TABLE_NAME + " WHERE " + " isHoliday = 1", null);
+
+
+
+        return cursor;
+    }
+
 
 
 }

@@ -1,5 +1,6 @@
 package com.srkakadesir.calendarteachers;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
 
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,11 +19,14 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
 import com.srkakadesir.calendarteachers.database.DatabaseHelper;
 import com.srkakadesir.calendarteachers.database.MonthEntry;
 import com.srkakadesir.calendarteachers.model.DaysModel;
 import com.srkakadesir.calendarteachers.model.MonthModel;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -42,6 +47,7 @@ public class CalendarActivity extends AppCompatActivity {
     private ImageView header_main;
     private List<Cursor> cursor_day_list;
     private ImageView iv_adv;
+    private NavigationView nav_view;
 
 
     @Override
@@ -52,14 +58,38 @@ public class CalendarActivity extends AppCompatActivity {
 
         header_main = findViewById(R.id.iv_header_main);
 
-        header_main.setOnClickListener(new View.OnClickListener() {
+        setCurrentMonth();
+        nav_view = findViewById(R.id.nav_view);
+
+        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CalendarActivity.this, ShowImageActivity.class);
-                startActivity(intent);
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+
+                    case R.id.ls_niyamak_mandal_menu:
+                        startActivity(new Intent(CalendarActivity.this,NiyamakMandal.class));
+                        break;
+
+                    case R.id.ls_holidays_menu:
+                        startActivity(new Intent(CalendarActivity.this,Holidays.class));
+                        break;
+
+                    case R.id.ls_sanchalak_mandal_menu:
+                        startActivity(new Intent(CalendarActivity.this, SanchalakMandal.class));
+                        break;
+
+                    case R.id.ls_vaishishtye_menu:
+                        startActivity(new Intent(CalendarActivity.this, Vaishishtye.class));
+                        break;
+
+                    case R.id.ls_about_developer_menu:
+                        startActivity(new Intent(CalendarActivity.this, AboutDeveloper.class));
+                        break;
+
+                }
+                return true;
             }
         });
-        setCurrentMonth();
 
         DateFormat dateFormat = new SimpleDateFormat("MM");
         Date date = new Date();
@@ -75,10 +105,10 @@ public class CalendarActivity extends AppCompatActivity {
         fetchData();
         setStartDayShift(mList.get(month_id));
         initializeViews();
+        fetchDays(month_id);
         setDialog(mList.get(month_id));
         setFields(mList.get(month_id));
-        fetchDays(month_id);
-
+//        setHolidays(mList.get(month_id));
 
 
 
@@ -144,13 +174,16 @@ public class CalendarActivity extends AppCompatActivity {
                         for (int i=0 ;i<35 ;i++){
                             tv_date[i].setBackgroundColor(getResources().getColor(R.color.colorWhite));
                         }
-
-                        setStartDayShift(mList.get(n));
-                        setFields(mList.get(n));
-                        setDialog(mList.get(n));
-                        dList.clear();
+                        dList = new ArrayList<>();
+                        cursor_day_list.clear();
+                        fetchData();
                         fetchDays(n);
-                        setAdvertisement(n);
+                        setStartDayShift(mList.get(n));
+                            Log.d("dlist_size", String.valueOf(dList.size()));
+                            setFields(mList.get(n));
+                            setDialog(mList.get(n));
+                            setAdvertisement(n);
+
                     }
                 });
 
@@ -158,6 +191,24 @@ public class CalendarActivity extends AppCompatActivity {
         });
 
     }
+
+    private void resetTextColors() {
+        for (int i=0;i<35; i++) {
+            if (i == 0 || i==7 || i==14 || i==21 || i==28){
+                tv_date[i].setTextColor(getResources().getColor(R.color.colorRed));
+            } else {
+                tv_date[i].setTextColor(getResources().getColor(R.color.colorBlack));
+            }
+        }
+    }
+
+    private void setHolidays(int selected_month,int selected_date,int position) {
+        if (dList.get(selected_date).getIsHoliday() == 1 && selected_month == dList.get(selected_date).getMonth()) {
+            tv_date[position].setTextColor(getResources().getColor(R.color.colorRed));
+        }
+
+    }
+
 
     private void setAdvertisement(int n) {
 
@@ -414,16 +465,21 @@ public class CalendarActivity extends AppCompatActivity {
 
 
     private void setDialog(final MonthModel model) {
+        resetTextColors();
         int no = model.getNo_of_days();
         for (int i=1 ;i<=35 ;i++){
             if (i - start_day_shift <= no) {
                 tv_date[i - 1].setText(getDate(i - start_day_shift));
-
                 final int finalI = i;
+                if (finalI - start_day_shift >= 0 && finalI - start_day_shift < dList.size()) {
+                    Log.d("holidays_log", " "+model.getId() + "  " + String.valueOf(finalI - start_day_shift) + "  "+ String.valueOf(finalI - 1));
+                    setHolidays(model.getId(), finalI - start_day_shift,  finalI );
+                }
                 tv_date[i - 1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (!getDate(finalI - start_day_shift).equals("")) {
+
                             dialogSelectedDate(model.getMonth_name(), getDate(finalI - start_day_shift), finalI - 1);
                         }
                     }
@@ -435,6 +491,15 @@ public class CalendarActivity extends AppCompatActivity {
         if (start_day_shift == 6){
             if (no >=30) {
                 tv_date[0].setText(getDate(30));
+                if (dList.get(30).getIsHoliday() == 1){
+                    tv_date[0].setTextColor(getResources().getColor(R.color.colorRed));
+                }
+
+                if (dList.size() >= 30) {
+                    Log.d("holidays_log", " "+model.getId() + "  " + 30 + " 0");
+                    setHolidays(model.getId(), 29,  0);
+                }
+
                 tv_date[0].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -445,6 +510,14 @@ public class CalendarActivity extends AppCompatActivity {
 
             if (no == 31) {
                 tv_date[1].setText(getDate(31));
+                if (dList.get(30).getIsHoliday() == 1){
+                    tv_date[1].setTextColor(getResources().getColor(R.color.colorRed));
+                }
+
+                if (dList.size() >= 31) {
+                    setHolidays(model.getId(), 30,  1);
+                }
+
                 tv_date[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -455,6 +528,12 @@ public class CalendarActivity extends AppCompatActivity {
 
         }else if( start_day_shift == 5 && no == 31){
             tv_date[0].setText(getDate(31));
+
+            if (dList.size() >= 31) {
+                setHolidays(model.getId(), 30,  0);
+            }
+
+
             tv_date[0].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -538,6 +617,8 @@ public class CalendarActivity extends AppCompatActivity {
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.selected_date_layout, null);
 
+        Toast.makeText(this, "current month : "+ current_month + "current date : "+ selected_date, Toast.LENGTH_SHORT).show();
+
         TextView date = dialogView.findViewById(R.id.tv_date_selected_date_dialog);
         TextView day = dialogView.findViewById(R.id.tv_day_selected_date_dialog);
         TextView month = dialogView.findViewById(R.id.tv_month_selected_date_dialog);
@@ -580,6 +661,19 @@ public class CalendarActivity extends AppCompatActivity {
             }
             if (dList.get(Integer.valueOf(selected_date)-1).getOccassion_asset()==null){
                 iv_occassion.setVisibility(View.GONE);
+            }else {
+                try
+                {
+                    InputStream ims = getAssets().open(dList.get((Integer.valueOf(selected_date)-1)).getOccassion_asset() + ".png");
+                    Drawable d = Drawable.createFromStream(ims, null);
+                    iv_occassion.setImageDrawable(d);
+                    ims .close();
+                }
+                catch(IOException ex)
+                {
+                    Log.d("image_from_asset", ex.getMessage());
+                    return;
+                }
             }
         }
 

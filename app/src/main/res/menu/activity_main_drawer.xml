@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ls_niyamak_mandal_menu"
+        android:title="नियामक मंडळ" />
+    <item
+        android:id="@+id/ls_sanchalak_mandal_menu"
+        android:title="संचालक मंडळ" />
+    <item
+        android:id="@+id/ls_vaishishtye_menu"
+        android:title="पतसंस्थेची वैशिष्ट्ये" />
+    <item
+        android:id="@+id/ls_holidays_menu"
+        android:title="सुट्ट्या" />
+    <item
+        android:id="@+id/ls_about_developer_menu"
+        android:title="About Developer" />
+</menu>
